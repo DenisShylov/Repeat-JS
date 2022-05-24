@@ -18,6 +18,9 @@ const onCreateTask = () => {
   }
   taskTitleInputElem.value = '';
 
+  const listElem = document.querySelector('.list');
+  listElem.textContent = '';
+
   tasks.push({
     text,
     done: false,
@@ -35,6 +38,8 @@ const changeToCheckbox = (event) => {
   if (!isCheckbox) {
     return;
   }
+  const listElem = document.querySelector('.list');
+  listElem.textContent = '';
 
   const taskData = tasks.find((task) => task.id === event.target.dataset.id);
 
@@ -49,11 +54,10 @@ listElem.addEventListener('click', changeToCheckbox);
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
-    .map(({ text, done }) => {
-      id = Math.random().toString();
+    .map(({ text, done, id }) => {
       const listItemElem = document.createElement('li');
+      listItemElem.setAttribute('data-id', id);
       listItemElem.classList.add('list__item');
-      listItemElem.setAttribute('data-id', [id]);
 
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
