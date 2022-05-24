@@ -7,16 +7,6 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
-// Изменяем значение done
-// const changeCheckbox = (event) => {
-//   const bool = event.target.checked;
-//   for (let i = 0; i < tasks.length; i++) {
-//     tasks[i].done = bool;
-//   }
-//   renderTasks(tasks);
-//   console.log(tasks);
-// };
-
 // Создаем таску
 const onCreateTask = () => {
   const taskTitleInputElem = document.querySelector('.task-input');
@@ -34,7 +24,6 @@ const onCreateTask = () => {
     id: Math.random().toString(),
   });
   renderTasks(tasks);
-  console.log(tasks);
 };
 
 const createBtnElem = document.querySelector('.create-task-btn');
@@ -48,7 +37,9 @@ const changeToCheckbox = (event) => {
   }
 
   const taskData = tasks.find((task) => task.id === event.target.dataset.id);
+
   Object.assign(taskData, { done: event.target.checked });
+
   renderTasks(tasks);
 };
 
@@ -76,6 +67,7 @@ const renderTasks = (tasksList) => {
 
       return listItemElem;
     });
+  console.log(tasks);
 
   listElem.append(...tasksElems);
 };
