@@ -1,13 +1,15 @@
 // Исходный массив
 const tasks = [
-  { text: 'Buy milk', done: false },
-  { text: 'Pick up Tom from airport', done: false },
-  { text: 'Visit party', done: false },
-  { text: 'Visit doctor', done: true },
-  { text: 'Buy meat', done: true },
+  { text: 'Buy milk', done: false, id: Math.random().toString() },
+  {
+    text: 'Pick up Tom from airport',
+    done: false,
+    id: Math.random().toString(),
+  },
+  { text: 'Visit party', done: false, id: Math.random().toString() },
+  { text: 'Visit doctor', done: true, id: Math.random().toString() },
+  { text: 'Buy meat', done: true, id: Math.random().toString() },
 ];
-
-tasks.forEach((el) => Object.assign(el, { id: Math.random().toString() }));
 
 // Создаем таску
 const onCreateTask = () => {
@@ -36,15 +38,17 @@ createBtnElem.addEventListener('click', onCreateTask);
 
 const changeToCheckbox = (event) => {
   const isCheckbox = event.target.classList.contains('list__item-checkbox');
-  tasks.map((el) => (el = { id: Math.random().toString() }));
 
   if (!isCheckbox) {
     return;
   }
+  console.log(tasks);
   const listElem = document.querySelector('.list');
   listElem.textContent = '';
 
-  const taskData = tasks.find((task) => task.id === event.target.dataset.id);
+  const taskData = tasks.find(
+    (task) => task.id === event.target.parentNode.dataset.id
+  );
 
   Object.assign(taskData, { done: event.target.checked });
 
