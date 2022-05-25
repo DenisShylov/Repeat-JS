@@ -7,6 +7,8 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
+tasks.forEach((el) => Object.assign(el, { id: Math.random().toString() }));
+
 // Создаем таску
 const onCreateTask = () => {
   const taskTitleInputElem = document.querySelector('.task-input');
@@ -34,6 +36,7 @@ createBtnElem.addEventListener('click', onCreateTask);
 
 const changeToCheckbox = (event) => {
   const isCheckbox = event.target.classList.contains('list__item-checkbox');
+  tasks.map((el) => (el = { id: Math.random().toString() }));
 
   if (!isCheckbox) {
     return;
