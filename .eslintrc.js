@@ -6,7 +6,7 @@ module.exports = {
     browser: true,
   },
   rules: {
-    quotes: 'single',
+    strict: 0,
     'no-alert': 0,
     'no-console': 0,
     'no-constant-condition': 0,
