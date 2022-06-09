@@ -42,7 +42,7 @@ const changeToCheckbox = (event) => {
   if (!isCheckbox) {
     return;
   }
-  console.log(tasks);
+
   const listElem = document.querySelector('.list');
   listElem.textContent = '';
 
@@ -78,7 +78,6 @@ const renderTasks = (tasksList) => {
 
       return listItemElem;
     });
-  console.log(tasks);
 
   listElem.append(...tasksElems);
 };
