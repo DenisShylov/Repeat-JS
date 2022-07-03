@@ -1,0 +1,18 @@
+.page {
+  display: flex;
+  height: 100vh;
+}
+
+.counter {
+  margin: auto;
+}
+
+.counter__value {
+  margin: 0 10px 0 10px;
+}
+
+button {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+}
