@@ -28,6 +28,7 @@ const onCreateTask = () => {
   tasks.push({
     text,
     done: false,
+    createDate: new Date().toISOString(),
     id: Math.random().toString(),
   });
   renderTasks(tasks);
@@ -60,7 +61,7 @@ listElem.addEventListener('click', changeToCheckbox);
 
 const renderTasks = (tasksList) => {
   const tasksElems = tasksList
-    .sort((a, b) => a.done - b.done)
+    .sort((a, b) => new Date(b.finishDate) - new Date(a.finishDate))
     .map(({ text, done, id }) => {
       const listItemElem = document.createElement('li');
       listItemElem.setAttribute('data-id', id);
