@@ -19,7 +19,7 @@ const renderUserData = (userData) => {
 
   userAvatarElem.src = avatar_url;
   userNameElem.textContent = name;
-  nameLocationElem.textContent = location ? `from ${location} ` : '';
+  nameLocationElem.textContent = location ? `from ${location}` : '';
 };
 const onSearchUser = () => {
   const userName = inputElem.value;
